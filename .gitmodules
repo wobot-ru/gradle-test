@@ -1,4 +1,0 @@
-[submodule "module1"]
-	path = module1
-	url = git@github.com:wobot-ru/module1.git
-	branch = master
