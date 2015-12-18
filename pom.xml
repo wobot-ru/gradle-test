@@ -1,17 +1,21 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>ru.wobot</groupId>
     <artifactId>gradle-test</artifactId>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
     <version>1.1-SNAPSHOT</version>
+    <modules>
+        <module>module1</module>
+    </modules>
     <name>gradle-test</name>
 
     <scm>
         <connection>scm:git:git@github.com:wobot-ru/gradle-test.git</connection>
         <developerConnection>scm:git:git@github.com:wobot-ru/gradle-test.git</developerConnection>
         <url>https://github.com/wobot-ru/gradle-test</url>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -37,7 +41,6 @@
                 <version>2.5.3</version>
                 <configuration>
                     <autoVersionSubmodules>true</autoVersionSubmodules>
-                    <!--<mavenExecutorId>forked-path</mavenExecutorId>-->
                     <tagNameFormat>release-@{project.version}</tagNameFormat>
                     <preparationGoals>clean test</preparationGoals>
                 </configuration>
@@ -47,10 +50,15 @@
 
     <distributionManagement>
         <repository>
+            <id>central</id>
+            <name>central</name>
+            <url>http://artifactory.wobot.local/artifactory/libs-release-local</url>
+        </repository>
+        <snapshotRepository>
             <id>snapshots</id>
             <name>snapshots</name>
             <url>http://artifactory.wobot.local/artifactory/libs-snapshot-local</url>
-        </repository>
+        </snapshotRepository>
     </distributionManagement>
 
 </project>
